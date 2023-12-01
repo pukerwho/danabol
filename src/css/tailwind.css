@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-main-gray text-main-dark;
+}
+
+.main {
+  @apply w-full max-w-[730px] mx-auto px-3 lg:px-0;
+}
+
+a {
+  @apply text-main-blue;
+}
+
+.menu a {
+  @apply text-main-gray;
+}
+.mobile-menu {
+  @apply w-full h-full bg-main-dark absolute top-[60px] left-0 transition-transform duration-300;
+}
+.mobile-menu li {
+  @apply border-b border-dashed border-main-border;
+}
+.mobile-menu a {
+  @apply inline-block text-main-gray p-4;
+}
+
+.card {
+  @apply bg-white border border-main-border rounded;
+}
+
+.card-title {
+  @apply text-xl font-medium border-b border-main-border px-4 py-3;
+}
+
+.comment-form {
+  @apply p-4;
+}
+
+.comment-reply-title {
+  @apply flex items-center justify-between px-4 pt-2;
+}
+
+.depth-1 > .comment {
+  @apply pl-4 lg:pl-6;
+}
+.depth-1 {
+  @apply border-b border-main-border;
+}
