@@ -64,6 +64,12 @@
         </div>
       </div>
     </div>
+    <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>
+    <?php if ($large_thumb): ?>
+      <div class="mb-4">
+        <img class="w-full object-cover" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
+      </div>
+    <?php endif; ?>
     <div class="content">
       <div class="p-4"><?php the_content(); ?></div>
     </div>
