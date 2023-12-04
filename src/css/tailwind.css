@@ -87,7 +87,7 @@ a {
   @apply mb-0;
 }
 .content .wp-block-image {
-  @apply border shadow-xl rounded-lg p-5 mb-8;
+  @apply -mx-4 mb-6;
 }
 .content .wp-block-image img {
   @apply w-full;
