@@ -19,6 +19,7 @@
       <div>
         <div class="mb-2"><span class="font-bold"><?php _e("Назва слота", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_slots_name"); ?></div>
         <div class="mb-2"><span class="font-bold"><?php _e("Дата виходу", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_slots_date"); ?></div>
+        <div class="mb-2"><span class="font-bold"><?php _e("Волатильність", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_slots_volatilyti"); ?></div>
         <div class="mb-4">
           <span class="font-bold"><?php _e("Провайдер", "treba-wp"); ?></span>: 
           <?php 
@@ -45,8 +46,32 @@
         <?php _e("Огляд", "treba-wp"); ?>
         <div class="text-base font-light"><?php _e("Правила, як грати в", "treba-wp"); ?> <?php echo carbon_get_the_post_meta("crb_slots_name"); ?></div>
       </div>
-      <div class="content p-4">
-        <?php the_content(); ?>
+      <div class="p-4">
+        <div class="content"><?php the_content(); ?></div>
+        <div>
+          <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
+          <div class="mb-4">
+            <ul>
+              <?php 
+                $pros = carbon_get_the_post_meta("crb_slots_pros"); 
+                foreach ($pros as $pros_item):
+              ?>
+                <li class="mb-1"><span class="w-[10px] h-[10px] inline-block rounded-full bg-emerald-400 mr-3"></span><?php echo $pros_item["crb_slots_pros_item"]; ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <h3 class="text-xl font-medium mb-2"><?php _e("Недоліки", "treba-wp"); ?></h3>
+          <div class="mb-4">
+            <ul>
+              <?php 
+                $pros = carbon_get_the_post_meta("crb_slots_cons"); 
+                foreach ($pros as $pros_item):
+              ?>
+                <li class="mb-1"><span class="w-[10px] h-[10px] inline-block rounded-full bg-red-400 mr-3"></span><?php echo $pros_item["crb_slots_cons_item"]; ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>

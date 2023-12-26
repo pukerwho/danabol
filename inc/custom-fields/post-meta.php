@@ -22,6 +22,15 @@ function crb_post_theme_options() {
       Field::make( 'text', 'crb_slot_link', 'Посилання' ),
       Field::make( 'text', 'crb_slots_name', 'Назва гри' ),
       Field::make( 'text', 'crb_slots_date', 'Дата створення' ),
+      Field::make( 'text', 'crb_slots_volatilyti', 'Волатильність' ),
+      Field::make( 'complex', 'crb_slots_pros', 'Переваги' )
+        ->add_fields( array(
+          Field::make( 'text', 'crb_slots_pros_item', 'Перевага' ),
+      ) ),
+      Field::make( 'complex', 'crb_slots_cons', 'Недоліки' )
+        ->add_fields( array(
+          Field::make( 'text', 'crb_slots_cons_item', 'Недолік' ),
+      ) ),
   ) );
 	Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'casino' )
