@@ -130,11 +130,11 @@ require get_template_directory() . '/inc/comments-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 function create_post_type() {
-  register_post_type( 'places',
+  register_post_type( 'slots',
     array(
       'labels' => array(
-          'name' => __( 'Места' ),
-          'singular_name' => __( 'Место' )
+          'name' => __( 'Ігрові автомати' ),
+          'singular_name' => __( 'Слот' )
       ),
       'public' => true,
       'has_archive' => true,
@@ -145,11 +145,11 @@ function create_post_type() {
 
     )
   );
-  register_post_type( 'rating',
+  register_post_type( 'casino',
     array(
       'labels' => array(
-          'name' => __( 'Рейтинг' ),
-          'singular_name' => __( 'Рейтинг' )
+          'name' => __( 'Казино' ),
+          'singular_name' => __( 'Казино' )
       ),
       'public' => true,
       'has_archive' => true,
@@ -165,9 +165,9 @@ add_action( 'init', 'create_post_type' );
 
 function category_register_taxonomy() {
   $args = array (
-    'label' => 'Категории',
+    'label' => 'Провайдери',
     'labels' => array(
-      'menu_name' => 'Категории',
+      'menu_name' => 'Провайдери',
       'all_items' => esc_html__( 'All category', 'text-domain' ),
       'edit_item' => esc_html__( 'Edit category', 'text-domain' ),
       'view_item' => esc_html__( 'View category', 'text-domain' ),
@@ -182,8 +182,8 @@ function category_register_taxonomy() {
       'add_or_remove_items' => esc_html__( 'Add or remove category', 'text-domain' ),
       'choose_from_most_used' => esc_html__( 'Choose most used category', 'text-domain' ),
       'not_found' => esc_html__( 'No category found', 'text-domain' ),
-      'name' => 'Категории',
-      'singular_name' => 'Категория',
+      'name' => 'Провайдери',
+      'singular_name' => 'Провайдер',
     ),
     'public' => true,
     'show_ui' => true,
@@ -198,13 +198,13 @@ function category_register_taxonomy() {
     'has_archive' => true,
     'sort' => true,
     'rewrite' => array(
-      'slug' => 'place-type',
+      'slug' => 'providers',
       'with_front'    => true,
       'hierarchical' => true,
     ),
   );
 
-  register_taxonomy( 'place-type', array( 'places', 'rating' ), $args );
+  register_taxonomy( 'providers', array( 'slots' ), $args );
 }
 add_action( 'init', 'category_register_taxonomy');
 

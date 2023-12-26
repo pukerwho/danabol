@@ -31,3 +31,9 @@ body {
     }
   }
 }
+
+.nav-links {
+  &:not(:last-of-type):after {
+    content: "|";
+  }
+}

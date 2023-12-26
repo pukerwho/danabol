@@ -33,7 +33,7 @@
   </div>
   <div class="card mb-6">
     <div class="border-b border-main-border p-4">
-      <h1 class="text-2xl font-semibold mb-4"><?php the_title(); ?></h1>
+      <h1 class="text-2xl lg:text-3xl font-semibold mb-4"><?php the_title(); ?></h1>
       <div class="flex flex-wrap text-gray-600 text-sm">
         <div class="w-full lg:w-1/2">
           <div><span class="font-semibold"><?php _e("Дата", "treba-wp"); ?></span>: <?php echo get_the_date('d.m.Y'); ?></div>
