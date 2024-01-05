@@ -47,7 +47,7 @@
         <div class="text-base font-light"><?php _e("Правила, як грати в", "treba-wp"); ?> <?php echo carbon_get_the_post_meta("crb_slots_name"); ?></div>
       </div>
       <div class="p-4">
-        <div class="content"><?php the_content(); ?></div>
+        <div class="content mb-4"><?php the_content(); ?></div>
         <div>
           <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
           <div class="mb-4">
