@@ -37,7 +37,13 @@ function crb_post_theme_options() {
     ->add_fields( array(
       Field::make( 'text', 'crb_casino_link', 'Посилання' ),
       Field::make( 'text', 'crb_casino_rating', 'Рейтинг' ),
+      Field::make( 'checkbox', 'crb_casino_check', 'Перевірено' ),
       Field::make( 'checkbox', 'crb_casino_licence', 'Ліцензія' ),
+      Field::make( 'text', 'crb_casino_licence_text', 'Ліцензія - текст' ),
+      Field::make( 'text', 'crb_casino_country', 'Країна' ),
+      Field::make( 'text', 'crb_casino_urname', 'Юридична особа' ),
+      Field::make( 'text', 'crb_casino_address', 'Місцезнаходження' ),
+      
       Field::make( 'complex', 'crb_casino_bonuses', 'Бонуси' )
         ->add_fields( array(
           Field::make( 'text', 'crb_casino_bonus', 'Бонус' ),

@@ -9,18 +9,37 @@
     <div class="card-title">
       <h1 class="text-2xl lg:text-3xl font-semibold"><?php the_title(); ?></h1>
     </div>
-    <div class="flex items-center flex-wrap px-4 py-4">
-      <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>
-      <?php if ($large_thumb): ?>
-      <div class="mb-4 lg:mb-0 lg:mr-8">
-        <img class="h-[100px] object-cover rounded-lg" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
-      </div>
-      <?php endif; ?>
-      <div>
-        <div class="mb-2"><span class="font-bold"><?php _e("Країна", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_slots_name"); ?></div>
-        <div class="mb-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2"><?php _e("Вхід", "treba-wp"); ?></a></div>
+    <div class="px-4 py-4">
+      <div class="flex flex-wrap lg:-mx-4">
+        <div class="w-full lg:w-1/3 lg:px-4">
+          <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?> 
+          <div class="flex flex-col items-center mb-4 lg:mb-0 lg:mr-8">
+            <?php if ($large_thumb): ?>
+              <img class="w-full object-cover rounded-lg mb-4" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
+            <?php endif; ?>
+            <div class="flex items-center -mx-2">
+              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2"><?php _e("Вхід", "treba-wp"); ?></a></div>
+              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2"><?php _e("Грати", "treba-wp"); ?></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-2/3 lg:px-4">
+          <div class="mb-2"><span class="font-bold"><?php _e("Країна", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_casino_country"); ?></div>
+          <?php if (carbon_get_the_post_meta("crb_casino_licence")): ?>
+            <div class="mb-2"><span class="font-bold"><?php _e("Ліцензія", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_casino_licence_text"); ?></div>
+          <?php endif; ?>
+          <?php if (carbon_get_the_post_meta("crb_casino_urname")): ?>
+            <div class="mb-2"><span class="font-bold"><?php _e("Юридична особа", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_casino_urname"); ?></div>
+          <?php endif; ?>
+          <?php if (carbon_get_the_post_meta("crb_casino_address")): ?>
+            <div class="mb-2"><span class="font-bold"><?php _e("Місцезнаходження", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_casino_address"); ?></div>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
+    <?php if (carbon_get_the_post_meta("crb_casino_check")): ?>
+      <div class="border-t border-main-border py-4 px-4">✅ <span class="italic"><?php _e("Казино перевірено, можна безтурботно грати!", "treba-wp"); ?></span></div>
+    <?php endif; ?>
   </div>
   <div class="flex justify-center flex-wrap mb-4">
     <div class="nav-links mb-2"><a href="#content" class="underline px-2"><?php _e("Огляд", "treba-wp"); ?></a></div>
