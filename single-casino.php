@@ -18,8 +18,8 @@
               <img class="w-full object-cover rounded-lg mb-4" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
             <?php endif; ?>
             <div class="flex items-center -mx-2">
-              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2"><?php _e("Вхід", "treba-wp"); ?></a></div>
-              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2"><?php _e("Грати", "treba-wp"); ?></a></div>
+              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Вхід", "treba-wp"); ?></a></div>
+              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Грати", "treba-wp"); ?></a></div>
             </div>
           </div>
         </div>
@@ -50,12 +50,12 @@
   <section id="content" class="mb-6">
     <div class="card">
       <div class="card-title">
-        <?php _e("Огляд", "treba-wp"); ?>
+        <?php _e("Огляд казино", "treba-wp"); ?> <?php the_title(); ?>
         <div class="text-base font-light"><?php _e("Все, що потрібно знати про казино", "treba-wp"); ?> <?php the_title(); ?></div>
       </div>
       <div class="p-4">
         <div class="content"><?php the_content(); ?></div>
-        <div>
+        <div class="mt-4">
           <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
           <div class="mb-4">
             <ul>

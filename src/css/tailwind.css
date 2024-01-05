@@ -54,7 +54,7 @@ a {
   @apply text-main-blue;
 }
 .content p {
-  @apply text-lg leading-[1.5] mb-4;
+  @apply leading-[1.5] mb-4;
 }
 .content p:last-of-type {
   @apply mb-0;
@@ -75,10 +75,10 @@ a {
   @apply list-decimal text-gray-800 dark:text-gray-200 mb-8 mt-4 ml-1;
 }
 .content ol li {
-  @apply text-lg ml-4;
+  @apply ml-4;
 }
 .content ul li {
-  @apply text-lg list-disc;
+  @apply list-disc;
 }
 .content li {
   @apply text-gray-800 mb-2;

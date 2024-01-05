@@ -812,12 +812,12 @@ video {
   height: 1.25rem;
 }
 
-.h-\[100px\] {
-  height: 100px;
-}
-
 .h-\[10px\] {
   height: 10px;
+}
+
+.h-\[100px\] {
+  height: 100px;
 }
 
 .h-\[175px\] {
@@ -858,18 +858,6 @@ video {
 
 .w-\[10px\] {
   width: 10px;
-}
-
-.w-\[100px\] {
-  width: 100px;
-}
-
-.w-\[150px\] {
-  width: 150px;
-}
-
-.w-\[175px\] {
-  width: 175px;
 }
 
 .table-auto {
@@ -975,12 +963,12 @@ video {
   border-right-width: 1px;
 }
 
-.border-l-8 {
-  border-left-width: 8px;
-}
-
 .border-t {
   border-top-width: 1px;
+}
+
+.border-l-8 {
+  border-left-width: 8px;
 }
 
 .border-dashed {
@@ -1005,21 +993,6 @@ video {
 .border-emerald-500 {
   --tw-border-opacity: 1;
   border-color: rgb(16 185 129 / var(--tw-border-opacity));
-}
-
-.border-b-gray-500 {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(107 114 128 / var(--tw-border-opacity));
-}
-
-.border-b-gray-300 {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
-.border-t-main-border {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(235 235 235 / var(--tw-border-opacity));
 }
 
 .bg-gray-100 {
@@ -1488,8 +1461,6 @@ a {
 
 .content p {
   margin-bottom: 1rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
   line-height: 1.5;
 }
 
@@ -1547,14 +1518,10 @@ a {
 
 .content ol li {
   margin-left: 1rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .content ul li {
   list-style-type: disc;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .content li {
@@ -1632,11 +1599,6 @@ a {
 }
 
 @media (min-width: 1024px) {
-  .lg\:-mx-2 {
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-  }
-
   .lg\:-mx-4 {
     margin-left: -1rem;
     margin-right: -1rem;
@@ -1674,6 +1636,10 @@ a {
     width: 33.333333%;
   }
 
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -1684,26 +1650,6 @@ a {
 
   .lg\:w-\[200px\] {
     width: 200px;
-  }
-
-  .lg\:w-1\/4 {
-    width: 25%;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
-  }
-
-  .lg\:w-2\/3 {
-    width: 66.666667%;
-  }
-
-  .lg\:w-2\/5 {
-    width: 40%;
-  }
-
-  .lg\:w-3\/5 {
-    width: 60%;
   }
 
   .lg\:max-w-\[200px\] {
