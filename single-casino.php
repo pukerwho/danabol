@@ -10,16 +10,16 @@
       <h1 class="text-2xl lg:text-3xl font-semibold"><?php the_title(); ?></h1>
     </div>
     <div class="px-4 py-4">
-      <div class="flex flex-wrap lg:-mx-4">
+      <div class="flex items-center flex-wrap lg:-mx-4">
         <div class="w-full lg:w-1/3 lg:px-4">
           <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?> 
-          <div class="flex flex-col items-center mb-4 lg:mb-0 lg:mr-8">
+          <div class="flex flex-col mb-4 lg:mb-0 lg:mr-8">
             <?php if ($large_thumb): ?>
-              <img class="w-full object-cover rounded-lg mb-4" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
+              <img class="w-full object-cover rounded-lg mb-8" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
             <?php endif; ?>
             <div class="flex items-center -mx-2">
               <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Вхід", "treba-wp"); ?></a></div>
-              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Грати", "treba-wp"); ?></a></div>
+              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="border border-blue-500 rounded px-6 py-2" target="_blank"><?php _e("Грати", "treba-wp"); ?></a></div>
             </div>
           </div>
         </div>

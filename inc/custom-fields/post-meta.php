@@ -8,17 +8,21 @@ function crb_post_theme_options() {
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'post' )
     ->add_fields( array(
-      Field::make( 'text', 'crb_post_author', 'Автор' ),
-      Field::make( 'text', 'crb_post_author_instagram', 'Інстаграм автора' ),
-      Field::make( 'text', 'crb_post_author_facebook', 'Фейсбук автора' ),
       Field::make( 'text', 'crb_post_title', 'Title' ),
       Field::make( 'textarea', 'crb_post_description', 'Description' ),
       Field::make( 'text', 'crb_post_keywords', 'Keywords' ),
-      Field::make( 'checkbox', 'crb_post_mainhide', 'Не виводити на головній сторінці' ),
+      Field::make( 'text', 'crb_post_author', 'Автор' ),
+      Field::make( 'text', 'crb_post_author_instagram', 'Інстаграм автора' ),
+      Field::make( 'text', 'crb_post_author_facebook', 'Фейсбук автора' ),
   ) );
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'slots' )
     ->add_fields( array(
+      Field::make( 'html', 'crb_seo_slots_seo', __( 'SEO' ) )->set_html( sprintf( '<b>ℹ️ SEO</b>' ) ),
+      Field::make( 'text', 'crb_slot_title', 'Title' ),
+      Field::make( 'textarea', 'crb_slot_description', 'Description' ),
+
+      Field::make( 'html', 'crb_seo_slots_settings', __( 'SEO' ) )->set_html( sprintf( '<b>ℹ️ INFO</b>' ) ),
       Field::make( 'text', 'crb_slot_link', 'Посилання' ),
       Field::make( 'text', 'crb_slots_name', 'Назва гри' ),
       Field::make( 'text', 'crb_slots_date', 'Дата створення' ),
@@ -35,6 +39,11 @@ function crb_post_theme_options() {
 	Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'casino' )
     ->add_fields( array(
+      Field::make( 'html', 'crb_seo_casino_seo', __( 'SEO' ) )->set_html( sprintf( '<b>ℹ️ SEO</b>' ) ),
+      Field::make( 'text', 'crb_casino_title', 'Title' ),
+      Field::make( 'textarea', 'crb_casino_description', 'Description' ),
+      
+      Field::make( 'html', 'crb_seo_casino_settings', __( 'SEO' ) )->set_html( sprintf( '<b>ℹ️ INFO</b>' ) ),
       Field::make( 'text', 'crb_casino_link', 'Посилання' ),
       Field::make( 'text', 'crb_casino_rating', 'Рейтинг' ),
       Field::make( 'checkbox', 'crb_casino_check', 'Перевірено' ),
