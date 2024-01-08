@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $countNumber = tutCount(get_the_ID()); ?>
+<?php 
+  $countNumber = tutCount(get_the_ID()); 
+  $current_cat_id = get_the_ID();
+?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -12,10 +15,10 @@
     <div class="px-4 py-4">
       <div class="flex items-center flex-wrap lg:-mx-4">
         <div class="w-full lg:w-1/3 lg:px-4">
-          <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?> 
+          <?php $logo = carbon_get_the_post_meta('crb_casino_logo'); ?>
           <div class="flex flex-col mb-4 lg:mb-0 lg:mr-8">
-            <?php if ($large_thumb): ?>
-              <img class="w-full object-cover rounded-lg mb-8" alt="<?php the_title(); ?>" src="<?php echo $large_thumb; ?>" loading="lazy">
+            <?php if ($logo): ?>
+              <img class="w-full object-cover rounded-lg mb-8" alt="<?php the_title(); ?>" src="<?php echo $logo; ?>" loading="lazy">
             <?php endif; ?>
             <div class="flex items-center -mx-2">
               <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Вхід", "treba-wp"); ?></a></div>
@@ -45,6 +48,7 @@
     <div class="nav-links mb-2"><a href="#content" class="underline px-2"><?php _e("Огляд", "treba-wp"); ?></a></div>
     <div class="nav-links mb-2"><a href="#bonus" class="underline px-2"><?php _e("Бонуси", "treba-wp"); ?></a></div>
     <div class="nav-links mb-2"><a href="#slots" class="underline px-2"><?php _e("Популярні слоти", "treba-wp"); ?></a></div>
+    <div class="nav-links mb-2"><a href="#faq" class="underline px-2"><?php _e("FAQ", "treba-wp"); ?></a></div>
     <div class="nav-links mb-2"><a href="#reviews" class="underline px-2"><?php _e("Відгуки", "treba-wp"); ?></a></div>
   </div>
   <section id="content" class="mb-6">
@@ -53,36 +57,140 @@
         <?php _e("Огляд казино", "treba-wp"); ?> <?php the_title(); ?>
         <div class="text-base font-light"><?php _e("Все, що потрібно знати про казино", "treba-wp"); ?> <?php the_title(); ?></div>
       </div>
-      <div class="p-4">
-        <div class="content"><?php the_content(); ?></div>
-        <div class="mt-4">
-          <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
-          <div class="mb-4">
-            <ul>
-              <?php 
-                $pros = carbon_get_the_post_meta("crb_casino_pros"); 
-                foreach ($pros as $pros_item):
-              ?>
-                <li class="mb-1"><span class="w-[10px] h-[10px] inline-block rounded-full bg-emerald-400 mr-3"></span><?php echo $pros_item["crb_casino_pros_item"]; ?></li>
-              <?php endforeach; ?>
-            </ul>
+      <div>
+        <div class="mb-4">
+          <?php $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?> 
+          <img src="<?php echo $large_thumb; ?>" alt="<?php the_title(); ?>" loading="lazy">
+        </div>
+        <div class="">
+          <table class="w-full border-collapse">
+            <tbody>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🔒 <?php _e("Верифікація", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_verification"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🔞 <?php _e("Мінімальний вік", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_minage"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">💰 <?php _e("Мінімальний депозит", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_mindep"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🖥️ <?php _e("Платформи", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_platforms"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">💵 <?php _e("Валюта", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_curruncy"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">💸<?php _e("Мінімальна виплата", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_minout"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🔄 <?php _e("Способи виведення", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_typeout"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🚀 <?php _e("Швидкість виводу", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_speedout"); ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🎮 <?php _e("Чи є демо-режим", "treba-wp"); ?></td>
+                <?php if (carbon_get_the_post_meta("crb_casino_demomode")): ?>
+                  <td class="p-4">Так</td>
+                <?php else: ?>
+                  <td class="p-4">Немає</td>
+                <?php endif; ?>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🌐 <?php _e("Мова", "treba-wp"); ?></td>
+                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_lang"); ?></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="border-b border-main-border p-4 mt-4">
+          <div class="flex flex-wrap lg:-mx-4">
+            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
+              <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
+              <div>
+                <ul>
+                  <?php 
+                    $pros = carbon_get_the_post_meta("crb_casino_pros"); 
+                    foreach ($pros as $pros_item):
+                  ?>
+                    <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-emerald-400 mr-3"></span><?php echo $pros_item["crb_casino_pros_item"]; ?></li>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 lg:px-4">
+              <h3 class="text-xl font-medium mb-2"><?php _e("Недоліки", "treba-wp"); ?></h3>
+              <div>
+                <ul>
+                  <?php 
+                    $pros = carbon_get_the_post_meta("crb_casino_cons"); 
+                    foreach ($pros as $pros_item):
+                  ?>
+                    <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-red-400 mr-3"></span><?php echo $pros_item["crb_casino_cons_item"]; ?></li>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
+            </div>
           </div>
-          <h3 class="text-xl font-medium mb-2"><?php _e("Недоліки", "treba-wp"); ?></h3>
-          <div class="mb-4">
-            <ul>
-              <?php 
-                $pros = carbon_get_the_post_meta("crb_casino_cons"); 
-                foreach ($pros as $pros_item):
-              ?>
-                <li class="mb-1"><span class="w-[10px] h-[10px] inline-block rounded-full bg-red-400 mr-3"></span><?php echo $pros_item["crb_casino_cons_item"]; ?></li>
-              <?php endforeach; ?>
-            </ul>
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-medium mb-2">⭐ <?php _e("Оцінки", "treb-wp"); ?></h3>
+          <div class="flex flex-wrap lg:-mx-4">
+            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
+              <?php $rating_bonus = carbon_get_the_post_meta("crb_casino_rating_bonus"); ?>
+              <div class="flex items-cente justify-between mb-2">
+                <div><?php _e("Бонуси та акції", "treba-wp"); ?></div>
+                <div class="min-w-[32px] text-center font-medium border border-main-border px-2"><?php echo $rating_bonus; ?></div>
+              </div>
+              <div class="relative bg-main-border w-full h-[4px] rounded"><div class="absolute left-0 top-0 bg-blue-500 h-[4px] rounded" style="width: <?php echo $rating_bonus; ?>%"></div></div>
+            </div>
+            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
+              <?php $rating_ux = carbon_get_the_post_meta("crb_casino_rating_ux"); ?>
+              <div class="flex items-cente justify-between mb-2">
+                <div><?php _e("Зручність в користуванні", "treba-wp"); ?></div>
+                <div class="min-w-[32px] text-center font-medium border border-main-border px-2"><?php echo $rating_ux; ?></div>
+              </div>
+              <div class="relative bg-main-border w-full h-[4px] rounded"><div class="absolute left-0 top-0 bg-blue-500 h-[4px] rounded" style="width: <?php echo $rating_ux; ?>%"></div></div>
+            </div>
+            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
+              <?php $rating_dovira = carbon_get_the_post_meta("crb_casino_dovira"); ?>
+              <div class="flex items-cente justify-between mb-2">
+                <div><?php _e("Надійність та довіра", "treba-wp"); ?></div>
+                <div class="min-w-[32px] text-center font-medium border border-main-border px-2"><?php echo $rating_dovira; ?></div>
+              </div>
+              <div class="relative bg-main-border w-full h-[4px] rounded"><div class="absolute left-0 top-0 bg-blue-500 h-[4px] rounded" style="width: <?php echo $rating_dovira; ?>%"></div></div>
+            </div>
+            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
+              <?php $rating_pidtrimka = carbon_get_the_post_meta("crb_casino_pidtrimka"); ?>
+              <div class="flex items-cente justify-between mb-2">
+                <div><?php _e("Служба підтримки", "treba-wp"); ?></div>
+                <div class="min-w-[32px] text-center font-medium border border-main-border px-2"><?php echo $rating_pidtrimka; ?></div>
+              </div>
+              <div class="relative bg-main-border w-full h-[4px] rounded"><div class="absolute left-0 top-0 bg-blue-500 h-[4px] rounded" style="width: <?php echo $rating_pidtrimka; ?>%"></div></div>
+            </div>
+          </div>
+          <div class="w-full">
+            <?php $rating = round(($rating_bonus + $rating_ux + $rating_dovira + $rating_pidtrimka)/4); ?>
+            <div class="flex items-cente justify-between mb-2">
+              <div><?php _e("Загальна оцінка", "treba-wp"); ?></div>
+              <div class="min-w-[32px] text-center font-medium border border-main-border px-2"><?php echo $rating; ?></div>
+            </div>
+            <div class="relative bg-main-border w-full h-[4px] rounded"><div class="absolute left-0 top-0 bg-blue-500 h-[4px] rounded" style="width: <?php echo $rating; ?>%"></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="where" class="mb-6">
+  <section id="bonus" class="mb-6">
     <div class="card">
       <div class="card-title">
         <?php _e("Бонуси", "treba-wp"); ?>
@@ -124,6 +232,30 @@
             <?php get_template_part("template-parts/slots/item"); ?>
           </div>
         <?php endwhile; endif; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="mb-6">
+    <div class="card">
+      <div class="card-title">
+        <?php _e("FAQ", "treba-wp"); ?>
+        <div class="text-base font-light"><?php _e("Питання та відповіді", "treba-wp"); ?></div>
+      </div>
+      <div itemscope itemtype="https://schema.org/FAQPage" class="p-4">
+        <?php 
+        $faqs = carbon_get_the_post_meta('crb_casino_faq');
+        foreach( $faqs as $faq ): ?>
+          <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-3 last-of-type:mb-0">
+            <summary class="zag" itemprop="name">
+              <?php echo $faq['crb_casino_faq_question'] ?>	
+            </summary> 
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="bg-gray-100 rounded-lg mt-2 p-4">
+              <div itemprop="text">
+                <p><?php echo $faq['crb_casino_faq_answer'] ?></p>
+              </div>
+            </div>
+          </details>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>

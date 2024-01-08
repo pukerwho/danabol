@@ -58,9 +58,6 @@
                 <td class="whitespace-nowrap px-4 py-3">
                   <div>
                     <a href="<?php the_permalink(); ?>" class="flex items-center">
-                      <?php $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium'); if ($thumb): ?>
-                      <img class="w-[35px] h-[35px] w-max-[35px] h-max-[35px]  object-cover rounded-full mr-2" alt="<?php the_title(); ?>" src="<?php echo $thumb; ?>" loading="lazy">
-                      <?php endif; ?>
                       <?php the_title(); ?>
                     </a>
                   </div>
@@ -80,13 +77,14 @@
                   <?php endif; ?>
                 </td>
                 <td class="whitespace-nowrap px-4 py-3">
-                  <div class="flex items-center">
+                  <div class="inline-flex items-center relative bg-emerald-500 text-white rounded px-4 py-2">
+                    <a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="w-full h-full absolute left-0 top-0 z-1"></a>
                     <div class="mr-1">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
                       </svg>
                     </div>
-                    <a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>"><?php _e("Грати", "treba-wp"); ?>!</a>
+                    <span class="font-bold"><?php _e("Грати", "treba-wp"); ?>!</span>
                   </div>
                 </td>
               </tr>
