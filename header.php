@@ -120,7 +120,7 @@ if ( is_singular( 'slots' ) ) {
         </div>
         <div class="hidden lg:block">
           <?php wp_nav_menu([
-            'theme_location' => 'header',
+            'theme_location' => 'menu-1',
             'container' => 'div',
             'menu_class' => 'menu flex'
           ]); ?> 
