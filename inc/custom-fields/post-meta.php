@@ -52,16 +52,48 @@ function crb_post_theme_options() {
       Field::make( 'text', 'crb_casino_country', 'Країна' ),
       Field::make( 'text', 'crb_casino_urname', 'Юридична особа' ),
       Field::make( 'text', 'crb_casino_address', 'Місцезнаходження' ),
-      Field::make( 'text', 'crb_casino_verification', 'Верифікація' ),
+      Field::make( 'text', 'crb_casino_site', 'Офіційний сайт' ),
+      Field::make( 'multiselect', 'crb_casino_verification', 'Верифікація' )
+      ->add_options( array(
+        'Через Дію' => 'ДІЯ',
+        'Через BankID' => 'BankID',
+        'За номером телефону' => 'Телефон',
+        'Через email' => 'Email',
+        'Скан паспорту' => 'Паспорт',
+      ) ),
       Field::make( 'text', 'crb_casino_minage', 'Мінімальний вік' ),
       Field::make( 'text', 'crb_casino_mindep', 'Мінімальний депозит' ),
-      Field::make( 'text', 'crb_casino_platforms', 'Платформи' ),
-      Field::make( 'text', 'crb_casino_curruncy', 'Валюта' ),
+      Field::make( 'multiselect', 'crb_casino_platforms', 'Платформи' )
+      ->add_options( array(
+        'Android' => 'Android',
+        'iOS' => 'iOS',
+        'Windows' => 'Windows',
+        'macOS' => 'macOS',
+      ) ),
+      Field::make( 'multiselect', 'crb_casino_curruncy', 'Валюта' )
+      ->add_options( array(
+        'Гривна' => 'Гривна',
+        'Доллар' => 'Доллар',
+        'Біткоін' => 'Біткоін',
+      ) ),
       Field::make( 'text', 'crb_casino_minout', 'Мінімальна виплата' ),
-      Field::make( 'text', 'crb_casino_typeout', 'Способи виведення' ),
+      Field::make( 'multiselect', 'crb_casino_typeout', 'Способи виведення' )
+      ->add_options( array(
+        'MasterCard' => 'MasterCard',
+        'Visa' => 'Visa',
+        'Інтернет банкінг' => 'Інтернет банкінг',
+        'Платіжні термінали' => 'Платіжні термінали',
+        'Google Pay' => 'Google Pay',
+        'Apple Pay' => 'Apple Pay',
+      ) ),
       Field::make( 'text', 'crb_casino_speedout', 'Швидкість виводу' ),
       Field::make( 'checkbox', 'crb_casino_demomode', 'Чи є демо-режим' ),
-      Field::make( 'text', 'crb_casino_lang', 'Мова' ),
+      Field::make( 'multiselect', 'crb_casino_lang', 'Мова' )
+      ->add_options( array(
+        'Українська' => 'Українська',
+        'Російська' => 'Російська',
+        'Англійська' => 'Англійська',
+      ) ),
       Field::make( 'html', 'crb_rating_casino', __( 'Rating' ) )->set_html( sprintf( '<b>ℹ️ RATING</b>' ) ),
       Field::make( 'text', 'crb_casino_rating_bonus', 'Бонуси та акції' ),
       Field::make( 'text', 'crb_casino_rating_ux', 'Зручність в користуванні' ),

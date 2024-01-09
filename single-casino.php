@@ -37,6 +37,7 @@
           <?php if (carbon_get_the_post_meta("crb_casino_address")): ?>
             <div class="mb-2"><span class="font-bold"><?php _e("Місцезнаходження", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta("crb_casino_address"); ?></div>
           <?php endif; ?>
+          <div class="mb-2"><span class="font-bold"><?php _e("Офіційний сайт", "treba-wp"); ?></span>: <a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>"><?php echo carbon_get_the_post_meta("crb_casino_site"); ?></a></div>
         </div>
       </div>
     </div>
@@ -67,7 +68,7 @@
             <tbody>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🔒 <?php _e("Верифікація", "treba-wp"); ?></td>
-                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_verification"); ?></td>
+                <td class="p-4"><?php $verification_array = carbon_get_the_post_meta("crb_casino_verification"); foreach ($verification_array as $verification): ?> <?php echo $verification; ?>;  <?php endforeach; ?></td>
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🔞 <?php _e("Мінімальний вік", "treba-wp"); ?></td>
@@ -79,11 +80,11 @@
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🖥️ <?php _e("Платформи", "treba-wp"); ?></td>
-                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_platforms"); ?></td>
+                <td class="p-4"><?php $platforms_array = carbon_get_the_post_meta("crb_casino_platforms"); foreach ($platforms_array as $platforms): ?> <?php echo $platforms; ?>;  <?php endforeach; ?></td>
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">💵 <?php _e("Валюта", "treba-wp"); ?></td>
-                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_curruncy"); ?></td>
+                <td class="p-4"><?php $currency_array = carbon_get_the_post_meta("crb_casino_curruncy"); foreach ($currency_array as $currency): ?> <?php echo $currency; ?>;  <?php endforeach; ?></td>
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">💸<?php _e("Мінімальна виплата", "treba-wp"); ?></td>
@@ -91,14 +92,14 @@
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🔄 <?php _e("Способи виведення", "treba-wp"); ?></td>
-                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_typeout"); ?></td>
+                <td class="p-4"><?php $typeout_array = carbon_get_the_post_meta("crb_casino_typeout"); foreach ($typeout_array as $typeout): ?> <?php echo $typeout; ?>;  <?php endforeach; ?></td>
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🚀 <?php _e("Швидкість виводу", "treba-wp"); ?></td>
                 <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_speedout"); ?></td>
               </tr>
               <tr class="border-b border-main-border">
-                <td class="font-medium p-4">🎮 <?php _e("Чи є демо-режим", "treba-wp"); ?></td>
+                <td class="font-medium p-4">🎮 <?php _e("Чи є", "treba-wp"); ?> <a href="https://danabol.com.ua/demo-rezhym-v-onlajn-kazyno-shho-cze-take/"> <?php _e("демо-режим", "treba-wp"); ?></a></td>
                 <?php if (carbon_get_the_post_meta("crb_casino_demomode")): ?>
                   <td class="p-4">Так</td>
                 <?php else: ?>
@@ -107,7 +108,7 @@
               </tr>
               <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🌐 <?php _e("Мова", "treba-wp"); ?></td>
-                <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_lang"); ?></td>
+                <td class="p-4"><?php $lang_array = carbon_get_the_post_meta("crb_casino_lang"); foreach ($lang_array as $lang): ?> <?php echo $lang; ?>;  <?php endforeach; ?></td>
               </tr>
             </tbody>
           </table>
