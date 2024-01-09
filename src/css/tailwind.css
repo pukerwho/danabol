@@ -14,8 +14,17 @@ a {
   @apply text-main-blue;
 }
 
+.menu {
+  @apply -mx-4;
+}
+.menu li {
+  @apply px-4;
+}
 .menu a {
-  @apply text-main-gray;
+  @apply text-white hover:text-yellow-200;
+}
+.menu .current-menu-item a {
+  @apply text-yellow-200;
 }
 .mobile-menu {
   @apply w-full h-full bg-main-dark absolute top-[60px] left-0 transition-transform duration-300;

@@ -6,7 +6,7 @@
       <?php wp_nav_menu([
         'theme_location' => 'footer',
         'container' => 'div',
-        'menu_class' => 'menu border-b border-dashed border-gray-200 pb-4 mb-4'
+        'menu_class' => 'menu flex border-b border-dashed border-gray-200 pb-4 mb-4'
       ]); ?> 
     </div>
     <div class="flex justify-center">

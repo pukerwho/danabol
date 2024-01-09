@@ -118,7 +118,7 @@ if ( is_singular( 'slots' ) ) {
             </svg>
           </div>
         </div>
-        <div class="hidden lg:block">
+        <div class="menu hidden lg:block">
           <?php wp_nav_menu([
             'theme_location' => 'menu-1',
             'container' => 'div',
