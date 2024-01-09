@@ -77,7 +77,7 @@ function crb_post_theme_options() {
         'Біткоін' => 'Біткоін',
       ) ),
       Field::make( 'text', 'crb_casino_minout', 'Мінімальна виплата' ),
-      Field::make( 'multiselect', 'crb_casino_typeout', 'Способи виведення' )
+      Field::make( 'multiselect', 'crb_casino_typein', 'Способи поповнення' )
       ->add_options( array(
         'MasterCard' => 'MasterCard',
         'Visa' => 'Visa',
@@ -85,6 +85,14 @@ function crb_post_theme_options() {
         'Платіжні термінали' => 'Платіжні термінали',
         'Google Pay' => 'Google Pay',
         'Apple Pay' => 'Apple Pay',
+        'Криптовалюта' => 'Криптовалюта',
+      ) ),
+      Field::make( 'multiselect', 'crb_casino_typeout', 'Способи виведення' )
+      ->add_options( array(
+        'MasterCard' => 'MasterCard',
+        'Visa' => 'Visa',
+        'Інтернет банкінг' => 'Інтернет банкінг',
+        'Криптовалюта' => 'Криптовалюта',
       ) ),
       Field::make( 'text', 'crb_casino_speedout', 'Швидкість виводу' ),
       Field::make( 'checkbox', 'crb_casino_demomode', 'Чи є демо-режим' ),

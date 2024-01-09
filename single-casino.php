@@ -91,7 +91,11 @@
                 <td class="p-4"><?php echo carbon_get_the_post_meta("crb_casino_minout"); ?></td>
               </tr>
               <tr class="border-b border-main-border">
-                <td class="font-medium p-4">🔄 <?php _e("Способи виведення", "treba-wp"); ?></td>
+                <td class="font-medium p-4">➡️ <?php _e("Способи поповнення", "treba-wp"); ?></td>
+                <td class="p-4"><?php $typein_array = carbon_get_the_post_meta("crb_casino_typein"); foreach ($typein_array as $typein): ?> <?php echo $typein; ?>;  <?php endforeach; ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
+                <td class="font-medium p-4">⬅️ <?php _e("Способи виведення", "treba-wp"); ?></td>
                 <td class="p-4"><?php $typeout_array = carbon_get_the_post_meta("crb_casino_typeout"); foreach ($typeout_array as $typeout): ?> <?php echo $typeout; ?>;  <?php endforeach; ?></td>
               </tr>
               <tr class="border-b border-main-border">
