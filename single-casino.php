@@ -67,6 +67,10 @@
           <table class="w-full border-collapse">
             <tbody>
               <tr class="border-b border-main-border">
+                <td class="font-medium p-4">🔐 <?php _e("Реєстрація", "treba-wp"); ?></td>
+                <td class="p-4"><?php $registration_array = carbon_get_the_post_meta("crb_casino_registration"); foreach ($registration_array as $registration): ?> <?php echo $registration; ?>;  <?php endforeach; ?></td>
+              </tr>
+              <tr class="border-b border-main-border">
                 <td class="font-medium p-4">🔒 <?php _e("Верифікація", "treba-wp"); ?></td>
                 <td class="p-4"><?php $verification_array = carbon_get_the_post_meta("crb_casino_verification"); foreach ($verification_array as $verification): ?> <?php echo $verification; ?>;  <?php endforeach; ?></td>
               </tr>

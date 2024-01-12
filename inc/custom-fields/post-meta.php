@@ -53,13 +53,18 @@ function crb_post_theme_options() {
       Field::make( 'text', 'crb_casino_urname', 'Юридична особа' ),
       Field::make( 'text', 'crb_casino_address', 'Місцезнаходження' ),
       Field::make( 'text', 'crb_casino_site', 'Офіційний сайт' ),
+      Field::make( 'multiselect', 'crb_casino_registration', 'Реєстрація' )
+      ->add_options( array(
+        'Email' => 'Email',
+        'Телефоном' => 'Телефоном',
+        'Через Google-аккаунт' => 'Google-аккаунт',
+        'Через соцмережі' => 'Соцмережі',
+      ) ),
       Field::make( 'multiselect', 'crb_casino_verification', 'Верифікація' )
       ->add_options( array(
-        'Через Дію' => 'ДІЯ',
-        'Через BankID' => 'BankID',
-        'За номером телефону' => 'Телефон',
-        'Через email' => 'Email',
-        'Скан паспорту' => 'Паспорт',
+        'ДІЯ' => 'ДІЯ',
+        'BankID' => 'BankID',
+        'Паспорт\ID-картка' => 'Паспорт\ID-картка',
       ) ),
       Field::make( 'text', 'crb_casino_minage', 'Мінімальний вік' ),
       Field::make( 'text', 'crb_casino_mindep', 'Мінімальний депозит' ),
@@ -72,7 +77,7 @@ function crb_post_theme_options() {
       ) ),
       Field::make( 'multiselect', 'crb_casino_curruncy', 'Валюта' )
       ->add_options( array(
-        'Гривна' => 'Гривна',
+        'Гривня' => 'Гривня',
         'Доллар' => 'Доллар',
         'Біткоін' => 'Біткоін',
       ) ),
