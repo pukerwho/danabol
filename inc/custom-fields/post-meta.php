@@ -64,7 +64,7 @@ function crb_post_theme_options() {
       ->add_options( array(
         'ДІЯ' => 'ДІЯ',
         'BankID' => 'BankID',
-        'Паспорт\ID-картка' => 'Паспорт\ID-картка',
+        'Паспорт або ID-картка' => 'Паспорт або ID-картка',
       ) ),
       Field::make( 'text', 'crb_casino_minage', 'Мінімальний вік' ),
       Field::make( 'text', 'crb_casino_mindep', 'Мінімальний депозит' ),
