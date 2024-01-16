@@ -14,16 +14,13 @@
     </div>
     <div class="px-4 py-4">
       <div class="flex items-center flex-wrap lg:-mx-4">
-        <div class="w-full lg:w-1/3 lg:px-4">
-          <?php $logo = carbon_get_the_post_meta('crb_casino_logo'); ?>
-          <div class="flex flex-col mb-4 lg:mb-0 lg:mr-8">
-            <?php if ($logo): ?>
-              <img class="w-full object-cover rounded-lg mb-8" alt="<?php the_title(); ?>" src="<?php echo $logo; ?>" loading="lazy">
-            <?php endif; ?>
-            <div class="flex items-center -mx-2">
-              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="bg-blue-500 text-white rounded px-6 py-2" target="_blank"><?php _e("Вхід", "treba-wp"); ?></a></div>
-              <div class="px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="border border-blue-500 rounded px-6 py-2" target="_blank"><?php _e("Грати", "treba-wp"); ?></a></div>
-            </div>
+        <div class="w-full lg:w-1/3 lg:px-4 mb-4 lg:mb-0">
+          <?php $logo = carbon_get_the_post_meta('crb_casino_logo'); if ($logo): ?>
+            <img class="w-full object-cover rounded-lg mb-4" alt="<?php the_title(); ?>" src="<?php echo $logo; ?>" loading="lazy">
+          <?php endif; ?>
+          <div class="flex flex-wrap justify-between lg:-mx-2">
+            <div class="w-full lg:w-1/2 mb-2 lg:mb-0 lg:px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="w-full inline-block bg-blue-500 text-white text-center rounded py-2"><?php _e("Вхід", "treba-wp"); ?></a></div>
+            <div class="w-full lg:w-1/2 lg:px-2"><a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="w-full inline-block border border-blue-500 text-center rounded py-2"><?php _e("Грати", "treba-wp"); ?></a></div>
           </div>
         </div>
         <div class="w-full lg:w-2/3 lg:px-4">
@@ -122,32 +119,30 @@
           </table>
         </div>
         <div class="border-b border-main-border p-4 mt-4">
-          <div class="flex flex-wrap lg:-mx-4">
-            <div class="w-full lg:w-1/2 lg:px-4 mb-4">
-              <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
-              <div>
-                <ul>
-                  <?php 
-                    $pros = carbon_get_the_post_meta("crb_casino_pros"); 
-                    foreach ($pros as $pros_item):
-                  ?>
-                    <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-emerald-400 mr-3"></span><?php echo $pros_item["crb_casino_pros_item"]; ?></li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-medium mb-2"><?php _e("Переваги", "treb-wp"); ?></h3>
+            <div>
+              <ul>
+                <?php 
+                  $pros = carbon_get_the_post_meta("crb_casino_pros"); 
+                  foreach ($pros as $pros_item):
+                ?>
+                  <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-emerald-400 mr-3"></span><?php echo $pros_item["crb_casino_pros_item"]; ?></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
-            <div class="w-full lg:w-1/2 lg:px-4">
-              <h3 class="text-xl font-medium mb-2"><?php _e("Недоліки", "treba-wp"); ?></h3>
-              <div>
-                <ul>
-                  <?php 
-                    $pros = carbon_get_the_post_meta("crb_casino_cons"); 
-                    foreach ($pros as $pros_item):
-                  ?>
-                    <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-red-400 mr-3"></span><?php echo $pros_item["crb_casino_cons_item"]; ?></li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-medium mb-2"><?php _e("Недоліки", "treba-wp"); ?></h3>
+            <div>
+              <ul>
+                <?php 
+                  $pros = carbon_get_the_post_meta("crb_casino_cons"); 
+                  foreach ($pros as $pros_item):
+                ?>
+                  <li class="mb-1 last-of-type:mb-0"><span class="w-[10px] h-[10px] inline-block rounded-full bg-red-400 mr-3"></span><?php echo $pros_item["crb_casino_cons_item"]; ?></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
           </div>
         </div>

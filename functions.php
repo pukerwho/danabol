@@ -133,8 +133,8 @@ function create_post_type() {
   register_post_type( 'slots',
     array(
       'labels' => array(
-          'name' => __( 'Ігрові автомати' ),
-          'singular_name' => __( 'Слот' )
+        'name' => __( 'Ігрові автомати' ),
+        'singular_name' => __( 'Слот' )
       ),
       'public' => true,
       'has_archive' => true,
@@ -142,14 +142,13 @@ function create_post_type() {
       'show_in_rest' => true,
       'menu_icon' => 'dashicons-megaphone',
       'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'revisions',  ),
-
     )
   );
   register_post_type( 'casino',
     array(
       'labels' => array(
-          'name' => __( 'Казино' ),
-          'singular_name' => __( 'Казино' )
+        'name' => __( 'Казино' ),
+        'singular_name' => __( 'Казино' )
       ),
       'public' => true,
       'has_archive' => true,
@@ -168,20 +167,6 @@ function category_register_taxonomy() {
     'label' => 'Провайдери',
     'labels' => array(
       'menu_name' => 'Провайдери',
-      'all_items' => esc_html__( 'All category', 'text-domain' ),
-      'edit_item' => esc_html__( 'Edit category', 'text-domain' ),
-      'view_item' => esc_html__( 'View category', 'text-domain' ),
-      'update_item' => esc_html__( 'Update category', 'text-domain' ),
-      'add_new_item' => esc_html__( 'Add new category', 'text-domain' ),
-      'new_item_name' => esc_html__( 'New category', 'text-domain' ),
-      'parent_item' => esc_html__( 'Parent category', 'text-domain' ),
-      'parent_item_colon' => esc_html__( 'Parent category:', 'text-domain' ),
-      'search_items' => esc_html__( 'Search category', 'text-domain' ),
-      'popular_items' => esc_html__( 'Popular category', 'text-domain' ),
-      'separate_items_with_commas' => esc_html__( 'Separate category with commas', 'text-domain' ),
-      'add_or_remove_items' => esc_html__( 'Add or remove category', 'text-domain' ),
-      'choose_from_most_used' => esc_html__( 'Choose most used category', 'text-domain' ),
-      'not_found' => esc_html__( 'No category found', 'text-domain' ),
       'name' => 'Провайдери',
       'singular_name' => 'Провайдер',
     ),
@@ -205,30 +190,13 @@ function category_register_taxonomy() {
   );
 
   register_taxonomy( 'providers', array( 'slots' ), $args );
-}
-add_action( 'init', 'category_register_taxonomy');
 
-function city_register_taxonomy() {
-  $args = array (
-    'label' => 'Города',
+  $type_args = array (
+    'label' => 'Тип',
     'labels' => array(
-      'menu_name' => 'Города',
-      'all_items' => esc_html__( 'All Города', 'text-domain' ),
-      'edit_item' => esc_html__( 'Edit Города', 'text-domain' ),
-      'view_item' => esc_html__( 'View Города', 'text-domain' ),
-      'update_item' => esc_html__( 'Update Города', 'text-domain' ),
-      'add_new_item' => esc_html__( 'Add new Города', 'text-domain' ),
-      'new_item_name' => esc_html__( 'New Города', 'text-domain' ),
-      'parent_item' => esc_html__( 'Parent Города', 'text-domain' ),
-      'parent_item_colon' => esc_html__( 'Parent Города:', 'text-domain' ),
-      'search_items' => esc_html__( 'Search Города', 'text-domain' ),
-      'popular_items' => esc_html__( 'Popular Города', 'text-domain' ),
-      'separate_items_with_commas' => esc_html__( 'Separate Города with commas', 'text-domain' ),
-      'add_or_remove_items' => esc_html__( 'Add or remove Города', 'text-domain' ),
-      'choose_from_most_used' => esc_html__( 'Choose most used Города', 'text-domain' ),
-      'not_found' => esc_html__( 'No Города found', 'text-domain' ),
-      'name' => 'Города',
-      'singular_name' => 'Город',
+      'menu_name' => 'Тип',
+      'name' => 'Тип',
+      'singular_name' => 'Тип',
     ),
     'public' => true,
     'show_ui' => true,
@@ -243,15 +211,16 @@ function city_register_taxonomy() {
     'has_archive' => true,
     'sort' => true,
     'rewrite' => array(
-      'slug' => 'city',
+      'slug' => 'type',
       'with_front'    => true,
       'hierarchical' => true,
     ),
   );
 
-  register_taxonomy( 'city', array( 'places', 'rating' ), $args );
+  register_taxonomy( 'slots-type', array( 'slots' ), $type_args );
 }
-add_action( 'init', 'city_register_taxonomy');
+add_action( 'init', 'category_register_taxonomy');
+
 
 // add_action( 'init', 'add_meta_query_mainhide');
 function add_meta_query_mainhide() {

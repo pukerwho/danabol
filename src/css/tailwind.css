@@ -78,10 +78,10 @@ a {
   @apply text-lg mb-4 mt-6;
 }
 .content ul {
-  @apply list-disc text-gray-800 dark:text-gray-200 ml-4 mb-8;
+  @apply list-disc text-gray-800 dark:text-gray-200 ml-4 mb-4;
 }
 .content ol {
-  @apply list-decimal text-gray-800 dark:text-gray-200 mb-8 mt-4 ml-1;
+  @apply list-decimal text-gray-800 dark:text-gray-200 mb-4 mt-4 ml-1;
 }
 .content ol li {
   @apply ml-4;
