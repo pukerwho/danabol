@@ -22,6 +22,9 @@
         </div>
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </div>
+    <div class="p-4">
+      <a href="<?php echo get_page_url("page-blog"); ?>" class="w-full inline-block bg-main-border text-center rounded uppercase px-4 py-2"><?php _e("Всі статті", "treba-wp"); ?></a>
+    </div>
   </div>
 
   <div class="card mb-6">
@@ -102,7 +105,7 @@
       <?php 
         $top_post = new WP_Query( array( 
           'post_type' => 'slots', 
-          'posts_per_page' => 5,
+          'posts_per_page' => 12,
         ) );
         if ($top_post->have_posts()) : while ($top_post->have_posts()) : $top_post->the_post(); 
       ?>
@@ -112,5 +115,28 @@
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </div>
   </div>
+
+  <div class="card mb-6">
+    <div class="card-title">
+      💬 <?php _e("Коментарі гравців", "treba-wp"); ?>
+    </div>
+    <div>
+      <?php 
+        $args_comment = array(
+          'status' => 'approve'
+        );
+        $comments = get_comments( $args_comment );
+        foreach ($comments as $comment):
+      ?>
+        <div class="border-b border-main-border last:border-transparent p-4">
+          <div>
+            <span class="font-semibold"><?php echo get_comment_author(); ?></span> 👉 <a href="<?php echo get_the_permalink($comment->comment_post_ID); ?>" class="underline decoration-double"><?php echo get_the_title($comment->comment_post_ID); ?></a>
+          </div>
+          <div><?php $comment_text = wp_strip_all_tags(get_comment_text()); echo mb_strimwidth($comment_text, 0, 100, '...'); ?><a href="<?php echo get_comment_link(); ?>"> <?php _e("читати далі", "treba-wp"); ?></a></div>
+          <div class="hidden"><?php echo time_ago($comment->comment_date); ?></div>
+        </div>
+        
+      <?php endforeach; ?>
+    </div>
 	
 <?php get_footer(); ?>
