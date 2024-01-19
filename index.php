@@ -130,9 +130,9 @@
       ?>
         <div class="border-b border-main-border last:border-transparent p-4">
           <div>
-            <span class="font-semibold"><?php echo get_comment_author(); ?></span> 👉 <a href="<?php echo get_the_permalink($comment->comment_post_ID); ?>" class="underline decoration-double"><?php echo get_the_title($comment->comment_post_ID); ?></a>
+            <span class="font-semibold"><?php echo get_comment_author(); ?></span> 👉 <a href="<?php echo get_the_permalink($comment->comment_post_ID); ?>" ><?php echo get_the_title($comment->comment_post_ID); ?></a>
           </div>
-          <div><?php $comment_text = wp_strip_all_tags(get_comment_text()); echo mb_strimwidth($comment_text, 0, 100, '...'); ?><a href="<?php echo get_comment_link(); ?>"> <?php _e("читати далі", "treba-wp"); ?></a></div>
+          <div><?php $comment_text = wp_strip_all_tags(get_comment_text()); echo mb_strimwidth($comment_text, 0, 100, '...'); ?> <a href="<?php echo get_comment_link(); ?>"><?php _e("читати далі", "treba-wp"); ?></a></div>
           <div class="hidden"><?php echo time_ago($comment->comment_date); ?></div>
         </div>
         

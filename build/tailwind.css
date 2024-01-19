@@ -1337,11 +1337,6 @@ video {
   color: rgb(254 240 138 / var(--tw-text-opacity));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -1364,10 +1359,6 @@ video {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.decoration-double {
-  text-decoration-style: double;
 }
 
 .decoration-wavy {
