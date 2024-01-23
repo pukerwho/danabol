@@ -365,6 +365,68 @@ $currentId = get_the_ID();
     </div>
   </section>
 
+  <section id="other-provider" class="mb-6">
+    <div class="card">
+      <div class="card-title">
+        <?php _e("Інші ігри від розробника", "treba-wp"); ?> <?php echo $provider->name; ?>
+      </div>
+      <div class="flex flex-wrap px-4 pt-4 -mx-2">
+        <?php 
+          $slots_provider = new WP_Query( array( 
+            'post_type' => 'slots', 
+            'posts_per_page' => 12,
+            'post__not_in' => array($currentId),
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'providers',
+                'terms' => $provider->term_id,
+                'field' => 'term_id',
+                'include_children' => true,
+                'operator' => 'IN'
+              )
+            ),
+          ) );
+          if ($slots_provider->have_posts()) : while ($slots_provider->have_posts()) : $slots_provider->the_post(); 
+        ?>
+          <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+            <?php get_template_part("template-parts/slots/item"); ?>
+          </div>
+        <?php endwhile; endif; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </section>
+
+  <section id="other-provider" class="mb-6">
+    <div class="card">
+      <div class="card-title">
+        <?php _e("Схожі слоти", "treba-wp"); ?>
+      </div>
+      <div class="flex flex-wrap px-4 pt-4 -mx-2">
+        <?php 
+          $slots_provider = new WP_Query( array( 
+            'post_type' => 'slots', 
+            'posts_per_page' => 12,
+            'post__not_in' => array($currentId),
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'slots-type',
+                'terms' => $type->term_id,
+                'field' => 'term_id',
+                'include_children' => true,
+                'operator' => 'IN'
+              )
+            ),
+          ) );
+          if ($slots_provider->have_posts()) : while ($slots_provider->have_posts()) : $slots_provider->the_post(); 
+        ?>
+          <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+            <?php get_template_part("template-parts/slots/item"); ?>
+          </div>
+        <?php endwhile; endif; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </section>
+
   <div class="breadcrumbs text-sm mb-6" itemprop="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
     <ul class="flex items-center flex-wrap">
       <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem' class="breadcrumbs_item mr-4 pl-8">

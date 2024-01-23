@@ -32,24 +32,8 @@
       🎲 <?php _e("Казино в Україні", "treba-wp"); ?>
     </div>
     <div>
-      <table class="w-full table-auto">
-        <thead class="bg-main-gray ">
-          <tr>
-            <th class="text-left whitespace-nowrap px-4 py-3">
-              <div class="text-left font-bold"><?php _e("Назва", "treba-wp"); ?></div>
-            </th>
-            <th class="text-left whitespace-nowrap px-4 py-3">
-              <div class="text-left font-bold"><?php _e("Рейтинг", "treba-wp"); ?></div>
-            </th>
-            <th class="text-left whitespace-nowrap px-4 py-3">
-              <div class="text-left font-bold"><?php _e("Ліцензія", "treba-wp"); ?></div>
-            </th>
-            <th class="text-left whitespace-nowrap px-4 py-3">
-              <div class="text-left font-bold"><?php _e("Спробувати", "treba-wp"); ?></div>
-            </th>
-          </tr>
-        </thead>
-        <tbody class="">
+      <table class="w-full">
+        <tbody class="flex flex-col">
           <?php 
             $casino = new WP_Query( array(
               'post_type' => 'casino',
@@ -57,40 +41,7 @@
               'posts_per_page' => 5,
             ));
             if ($casino->have_posts()) : while ($casino->have_posts()) : $casino->the_post(); ?>
-              <tr class="border-b border-main-border last:border-transparent">
-                <td class="whitespace-nowrap px-4 py-3">
-                  <div>
-                    <a href="<?php the_permalink(); ?>" class="flex items-center">
-                      <?php the_title(); ?>
-                    </a>
-                  </div>
-                </td>
-                <td class="whitespace-nowrap px-4 py-3">
-                  <div>⭐ <?php echo carbon_get_the_post_meta("crb_casino_rating"); ?></div>
-                </td>
-                <td class="whitespace-nowrap px-4 py-3">
-                  <?php if (carbon_get_the_post_meta("crb_casino_licence")): ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                    </svg>
-                  <?php else: ?>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                  <?php endif; ?>
-                </td>
-                <td class="whitespace-nowrap px-4 py-3">
-                  <div class="inline-flex items-center relative bg-emerald-500 text-white rounded px-4 py-2">
-                    <a href="<?php echo carbon_get_the_post_meta("crb_casino_link"); ?>" class="w-full h-full absolute left-0 top-0 z-1"></a>
-                    <div class="mr-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-                      </svg>
-                    </div>
-                    <span class="font-bold"><?php _e("Грати", "treba-wp"); ?>!</span>
-                  </div>
-                </td>
-              </tr>
+              <?php echo get_template_part("template-parts/casino/casino-item"); ?>
           <?php endwhile; endif; wp_reset_postdata(); ?>
         </tbody>
       </table>
@@ -103,11 +54,11 @@
     </div>
     <div class="flex flex-wrap p-4 -mx-2">
       <?php 
-        $top_post = new WP_Query( array( 
+        $slots = new WP_Query( array( 
           'post_type' => 'slots', 
           'posts_per_page' => 12,
         ) );
-        if ($top_post->have_posts()) : while ($top_post->have_posts()) : $top_post->the_post(); 
+        if ($slots->have_posts()) : while ($slots->have_posts()) : $slots->the_post(); 
       ?>
         <div class="w-1/2 lg:w-1/3 px-2 mb-4">
           <?php get_template_part("template-parts/slots/item"); ?>
