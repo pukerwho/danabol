@@ -9,13 +9,13 @@ Template Name: Providers List
   <div class="mb-6">
     <h1 class="text-2xl lg:text-3xl font-semibold text-center mb-2"><?php the_title(); ?></h1>
     <div class="content mb-6"><?php echo carbon_get_the_post_meta("crb_page_description"); ?></div>
-    <div class="mb-6">
+    <div>
       <?php
       $providers = get_terms( array( 
         'taxonomy' => 'providers', 
         'parent' => 0, 
       )); foreach ($providers as $provider){ ?>
-        <div class="card">
+        <div class="card mb-6">
           <div class="card-title">
             <?php echo $provider->name; ?>
           </div>
