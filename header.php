@@ -3,8 +3,8 @@ $current_title = wp_get_document_title();
 
 // FOR Main Page
 if ( is_home() ) {
-  $home_title = crb_get_i18n_theme_option('crb_seo_mainpage_title'); 
-  $home_description = crb_get_i18n_theme_option('crb_seo_mainpage_description'); 
+  $home_title = "Огляди казино та слотів";
+  $home_description = "На нашому сайті ви знайдете найактуальніші огляди казино та слотів. Дізнайтеся про найгарячіші гри, вигідні бонуси та цікаві стратегії гри."; 
   if ($home_title) {
     $current_title = $home_title;
   }
@@ -17,6 +17,17 @@ if ( is_home() ) {
 if ( is_singular( 'post' ) ) {
   $post_title = carbon_get_the_post_meta('crb_post_title');
   $post_description = carbon_get_the_post_meta('crb_post_description');
+  if ($post_title) {
+    $current_title = $post_title;
+  }
+  if ($post_description) {
+    $current_description = $post_description;
+  }
+}
+
+if ( is_singular( 'page' ) ) {
+  $post_title = carbon_get_the_post_meta('crb_page_title');
+  $post_description = carbon_get_the_post_meta('crb_page_seo_description');
   if ($post_title) {
     $current_title = $post_title;
   }
