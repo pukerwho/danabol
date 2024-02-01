@@ -47,7 +47,7 @@
       </table>
     </div>
     <div class="p-4">
-      <a href="/casino/" class="w-full inline-block bg-main-border text-center rounded uppercase px-4 py-2"><?php _e("Всі казино", "treba-wp"); ?></a>
+      <a href="/best-casino/" class="w-full inline-block bg-main-border text-center rounded uppercase px-4 py-2"><?php _e("Всі казино", "treba-wp"); ?></a>
     </div>
   </div>
 

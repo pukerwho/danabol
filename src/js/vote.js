@@ -12,6 +12,7 @@ if (document.body.classList.contains('single')) {
 
   //Показываем результаты, если уже голосовал на странице
   if (localStorage.getItem('vote_post_'+postId)) {
+    console.log("вже голосував");
     //Меняем цвет блока
     if (postVoteLocal === "meta_up_") {
       document.querySelector('.js-vote-item[data-vote-item="'+ postVoteLocal +'"]').classList.add('bg-green-300');   
@@ -25,6 +26,8 @@ if (document.body.classList.contains('single')) {
     item.addEventListener('click', () => {
       // Проверяем голосовал ли уже или нет
       if (localStorage.getItem('vote_post_'+postId) || localStorage.getItem('vote_post_'+postTranslateIds)) {
+        console.log("вже голосував");
+        console.log(localStorage.getItem('vote_post_'+postId));
         return;
       } else {
         //Куда нажал
@@ -32,7 +35,6 @@ if (document.body.classList.contains('single')) {
         
         //Записываем в LocalStorage
         localStorage.setItem('vote_post_'+postId, itemMeta);
-        localStorage.setItem('vote_post_'+postTranslateIds, itemMeta);
 
         // Отправляем запрос
         let data = {
