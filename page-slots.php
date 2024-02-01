@@ -6,7 +6,6 @@ Template Name: Slots List
 
 <?php 
   get_header(); 
-  $currentID = get_the_ID();
 ?>
 
   <div class="mb-6">
