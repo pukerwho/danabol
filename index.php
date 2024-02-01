@@ -55,7 +55,7 @@
     <div class="card-title">
       🎰 <?php _e("Ігрові автомати", "treba-wp"); ?>
     </div>
-    <div class="flex flex-wrap border-b border-main-border px-4 pt-4 pb-2 -mx-2">
+    <div class="flex flex-wrap border-b border-main-border px-4 pt-4 pb-0 -mx-2">
       <?php 
         $slots = new WP_Query( array( 
           'post_type' => 'slots', 
@@ -69,7 +69,7 @@
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </div>
     <div class="p-4">
-      <a href="/slots/" class="w-full inline-block bg-main-border text-center rounded uppercase px-4 py-2"><?php _e("Всі слоти", "treba-wp"); ?></a>
+      <a href="/all-slots/" class="w-full inline-block bg-main-border text-center rounded uppercase px-4 py-2"><?php _e("Всі слоти", "treba-wp"); ?></a>
     </div>
   </div>
 
