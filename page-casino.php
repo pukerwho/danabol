@@ -15,7 +15,7 @@ Template Name: Casino List
           <?php 
             $casino = new WP_Query( array(
               'post_type'      => 'casino',
-              'orderby'        => 'meta_value',
+              'orderby'        => 'meta_value_num',
               'meta_key'       => '_crb_casino_rating',
               'posts_per_page' => -1,
             ));
