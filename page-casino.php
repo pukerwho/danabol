@@ -25,6 +25,11 @@ Template Name: Casino List
         </tbody>
       </table>
     </div>
+    <div class="card mb-6">
+      <div class="content p-4">
+        <?php the_content(); ?>
+      </div>
+    </div>
   </div>
 
 <?php get_footer(); ?>
