@@ -226,13 +226,60 @@ $currentId = get_the_ID();
             </tr>
           </thead>
           <tbody class="">
-            <?php 
-              $casino = new WP_Query( array(
-                'post_type' => 'casino',
-                'orderby' => 'rand',
-                'posts_per_page' => 5,
-              ));
-              if ($casino->have_posts()) : while ($casino->have_posts()) : $casino->the_post(); ?>
+            <?php $get_casinos = carbon_get_the_post_meta("crb_slots_casinos"); 
+            if ($get_casinos): ?>
+
+              <?php foreach ($get_casinos as $casino): ?>
+                <?php 
+                  $casino_id = $casino['crb_slots_casino_choose'][0]['id']; 
+                  $casino_link = $casino['crb_slots_casino_link'];
+                  
+                ?>
+                <tr class="border-b border-main-border last:border-transparent">
+                  <td class="whitespace-nowrap px-4 py-3">
+                    <div>
+                      <a href="<?php echo get_the_permalink($casino_id); ?>" class="flex items-center">
+                        <?php $thumb = get_the_post_thumbnail_url($casino_id, 'medium'); if ($thumb): ?>
+                        <img class="w-[35px] h-[35px] w-max-[35px] h-max-[35px]  object-cover rounded-full mr-2" alt="<?php echo get_the_title($casino_id); ?>" src="<?php echo $thumb; ?>" loading="lazy">
+                        <?php endif; ?>
+                        <?php echo get_the_title($casino_id); ?>
+                      </a>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-3">
+                    <div>⭐ <?php echo carbon_get_post_meta($casino_id, "crb_casino_rating"); ?></div>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-3">
+                    <?php if (carbon_get_post_meta($casino_id, "crb_casino_licence")): ?>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                    <?php else: ?>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>
+                    <?php endif; ?>
+                  </td>
+                  <td class="whitespace-nowrap px-4 py-3">
+                    <div class="flex items-center">
+                      <div class="mr-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                        </svg>
+                      </div>
+                      <a href="<?php echo $casino_link; ?>"><?php _e("Грати", "treba-wp"); ?>!</a>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <?php 
+                $casino = new WP_Query( array(
+                  'post_type' => 'casino',
+                  'orderby' => 'rand',
+                  'posts_per_page' => 5,
+                ));
+                if ($casino->have_posts()) : while ($casino->have_posts()) : $casino->the_post(); ?>
                 <tr class="border-b border-main-border last:border-transparent">
                   <td class="whitespace-nowrap px-4 py-3">
                     <div>
@@ -269,7 +316,8 @@ $currentId = get_the_ID();
                     </div>
                   </td>
                 </tr>
-            <?php endwhile; endif; wp_reset_postdata(); ?>
+              <?php endwhile; endif; wp_reset_postdata(); ?>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>

@@ -16,55 +16,69 @@ function crb_post_theme_options() {
       Field::make( 'text', 'crb_post_author_facebook', 'Фейсбук автора' ),
   ) );
   Container::make( 'post_meta', 'More' )
-    ->where( 'post_type', '=', 'slots' )
-    ->add_tab( __('SEO'), array(
-      Field::make( 'text', 'crb_slot_title', 'Title' ),
-      Field::make( 'textarea', 'crb_slot_description', 'Description' ),
-    ))
-    ->add_tab( __('Info'), array(
-      Field::make( 'image', 'crb_slot_logo', 'Лого' )->set_value_type( 'url'),
-      Field::make( 'text', 'crb_slot_link', 'Посилання' ),
-      Field::make( 'text', 'crb_slot_name', 'Назва гри' ),
-      Field::make( 'textarea', 'crb_slot_opys', 'Короткий опис' ),
-      Field::make( 'rich_text', 'crb_slot_rules', 'Правила та стратегія' ),
-      
-      Field::make( 'text', 'crb_slot_date', 'Дата створення' ),
-      Field::make( 'text', 'crb_slot_rtp', 'RTP' ),
-      Field::make( 'text', 'crb_slot_volatilyti', 'Волатильність' ),
-      Field::make( 'text', 'crb_slot_maxwin', 'Максимальний виграш' ),
-      Field::make( 'text', 'crb_slot_qtyline', 'Кількість ліній' ),
-      Field::make( 'text', 'crb_slot_gamepole', 'Ігрове поле' ),
-      Field::make( 'text', 'crb_slot_popular', 'Популярність' ),
-      Field::make( 'multiselect', 'crb_slot_lang', 'Мова' )
-      ->add_options( array(
-        'Українська' => 'Українська',
-        'Російська' => 'Російська',
-        'Англійська' => 'Англійська',
-      ) ),
-    ))
-    ->add_tab( __('Rating'), array(
-      Field::make( 'text', 'crb_slot_rating_gameplay', 'Геймплей' ),
-      Field::make( 'text', 'crb_slot_rating_design', 'Дизайн та графіка' ),
-      Field::make( 'text', 'crb_slot_rating_audio', 'Звукові ефекти' ),
-      Field::make( 'text', 'crb_slot_rating_bonus', 'Бонуси та фічі' ),
-      Field::make( 'text', 'crb_slot_rating', 'Рейтинг' ),
-    ))
-    ->add_tab( __('FAQ'), array(
-      Field::make( 'complex', 'crb_slot_faq', 'Питання/Відповіді' )
-        ->add_fields( array(
-          Field::make( 'text', 'crb_slot_faq_question', 'Питання' ),
-          Field::make( 'textarea', 'crb_slot_faq_answer', 'Відповідь' ),
-      ) ),
-    ))
-    ->add_tab( __('Переваги/Недоліки'), array(
-      Field::make( 'complex', 'crb_slots_pros', 'Переваги' )
-        ->add_fields( array(
-          Field::make( 'text', 'crb_slots_pros_item', 'Перевага' ),
-      ) ),
-      Field::make( 'complex', 'crb_slots_cons', 'Недоліки' )
-        ->add_fields( array(
-          Field::make( 'text', 'crb_slots_cons_item', 'Недолік' ),
-      ) ),
+  ->where( 'post_type', '=', 'slots' )
+  ->add_tab( __('SEO'), array(
+    Field::make( 'text', 'crb_slot_title', 'Title' ),
+    Field::make( 'textarea', 'crb_slot_description', 'Description' ),
+  ))
+  ->add_tab( __('Info'), array(
+    Field::make( 'image', 'crb_slot_logo', 'Лого' )->set_value_type( 'url'),
+    Field::make( 'text', 'crb_slot_link', 'Посилання' ),
+    Field::make( 'text', 'crb_slot_name', 'Назва гри' ),
+    Field::make( 'textarea', 'crb_slot_opys', 'Короткий опис' ),
+    Field::make( 'rich_text', 'crb_slot_rules', 'Правила та стратегія' ),
+    
+    Field::make( 'text', 'crb_slot_date', 'Дата створення' ),
+    Field::make( 'text', 'crb_slot_rtp', 'RTP' ),
+    Field::make( 'text', 'crb_slot_volatilyti', 'Волатильність' ),
+    Field::make( 'text', 'crb_slot_maxwin', 'Максимальний виграш' ),
+    Field::make( 'text', 'crb_slot_qtyline', 'Кількість ліній' ),
+    Field::make( 'text', 'crb_slot_gamepole', 'Ігрове поле' ),
+    Field::make( 'text', 'crb_slot_popular', 'Популярність' ),
+    Field::make( 'multiselect', 'crb_slot_lang', 'Мова' )
+    ->add_options( array(
+      'Українська' => 'Українська',
+      'Російська' => 'Російська',
+      'Англійська' => 'Англійська',
+    ) ),
+  ))
+  ->add_tab( __('Rating'), array(
+    Field::make( 'text', 'crb_slot_rating_gameplay', 'Геймплей' ),
+    Field::make( 'text', 'crb_slot_rating_design', 'Дизайн та графіка' ),
+    Field::make( 'text', 'crb_slot_rating_audio', 'Звукові ефекти' ),
+    Field::make( 'text', 'crb_slot_rating_bonus', 'Бонуси та фічі' ),
+    Field::make( 'text', 'crb_slot_rating', 'Рейтинг' ),
+  ))
+  ->add_tab( __('FAQ'), array(
+    Field::make( 'complex', 'crb_slot_faq', 'Питання/Відповіді' )
+      ->add_fields( array(
+        Field::make( 'text', 'crb_slot_faq_question', 'Питання' ),
+        Field::make( 'textarea', 'crb_slot_faq_answer', 'Відповідь' ),
+    ) ),
+  ))
+  ->add_tab( __('Переваги/Недоліки'), array(
+    Field::make( 'complex', 'crb_slots_pros', 'Переваги' )
+      ->add_fields( array(
+        Field::make( 'text', 'crb_slots_pros_item', 'Перевага' ),
+    ) ),
+    Field::make( 'complex', 'crb_slots_cons', 'Недоліки' )
+      ->add_fields( array(
+        Field::make( 'text', 'crb_slots_cons_item', 'Недолік' ),
+    ) ),
+  ))
+  ->add_tab( __('Де грати'), array(
+    Field::make( 'complex', 'crb_slots_casinos', 'Казино та посилання' )
+      ->add_fields( array(
+        Field::make( 'association', 'crb_slots_casino_choose', 'Казино')
+        ->set_max( 1 )
+        ->set_types( array(
+          array(
+            'type'      => 'post',
+            'post_type' => 'casino',
+          )
+        ) ),
+        Field::make( 'text', 'crb_slots_casino_link', 'Посилання' ),
+    ) ),
   ));
 
 	Container::make( 'post_meta', 'More' )
