@@ -792,10 +792,6 @@ video {
   display: none;
 }
 
-.aspect-auto {
-  aspect-ratio: auto;
-}
-
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
@@ -876,8 +872,20 @@ video {
   width: 100px;
 }
 
+.w-\[16px\] {
+  width: 16px;
+}
+
+.w-\[32px\] {
+  width: 32px;
+}
+
 .min-w-\[32px\] {
   min-width: 32px;
+}
+
+.max-w-\[730px\] {
+  max-width: 730px;
 }
 
 .table-auto {
@@ -1153,6 +1161,11 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .py-3 {
