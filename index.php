@@ -63,7 +63,7 @@
         ) );
         if ($slots->have_posts()) : while ($slots->have_posts()) : $slots->the_post(); 
       ?>
-        <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+        <div class="w-1/2 lg:w-1/4 px-2 mb-4">
           <?php get_template_part("template-parts/slots/item"); ?>
         </div>
       <?php endwhile; endif; wp_reset_postdata(); ?>
