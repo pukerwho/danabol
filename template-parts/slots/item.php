@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative h-full flex flex-col justify-between">
   <img src="<?php echo carbon_get_the_post_meta('crb_slot_logo'); ?>"  alt="<?php echo carbon_get_the_post_meta("crb_slot_name"); ?>" loading="lazy" class="w-full h-full aspect-square rounded-lg mb-4">
   <div class="text-center font-bold mb-2"><?php echo carbon_get_the_post_meta("crb_slot_name"); ?></div>
   <div class="flex lg:space-x-1">
