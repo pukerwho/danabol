@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
   <div class="mb-6">
-    <h1 class="text-2xl lg:text-3xl font-semibold text-center mb-2"><?php _e("Danabol - ваш провідник у світ азартних ігор", "treba-wp"); ?></h1>
+    <h1 class="text-2xl lg:text-3xl font-semibold text-center mb-2"><?php _e("Prott - ваш провідник у світ азартних ігор", "treba-wp"); ?></h1>
     <div class="text-center"><?php _e("Пояснюємо на пальцах так, що розбереться навіть ваша мама", "treba-wp"); ?></div>
   </div>
 
