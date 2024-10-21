@@ -150,8 +150,9 @@ $currentId = get_the_ID();
         <div class="text-base font-light"><?php _e("Які плюси та мінуси є в грі?", "treba-wp"); ?></div>
       </div>
       <div class="p-4">
-        <div class="flex flex-wrap lg:-mx-4">
-          <div class="w-full lg:w-1/2 lg:px-4 mb-4 lg:mb-0">
+        <div>
+          <div class="mb-4">
+            <h3 class="text-xl mb-2">Переваги:</h3>
             <ul>
               <?php 
                 $pros = carbon_get_the_post_meta("crb_slots_pros"); 
@@ -161,7 +162,8 @@ $currentId = get_the_ID();
               <?php endforeach; ?>
             </ul>
           </div>
-          <div class="w-full lg:w-1/2 lg:px-4">
+          <div>
+            <h3 class="text-xl mb-2">Недоліки:</h3>
             <ul>
               <?php 
                 $cons = carbon_get_the_post_meta("crb_slots_cons"); 

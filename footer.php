@@ -23,7 +23,7 @@
       ]); ?> 
     </div>
     <div class="flex justify-center">
-      danabol.com.ua © <?php $currentDate = new DateTime(); $year = $currentDate->format("Y"); echo $year; ?>
+      prott.com.ua © <?php $currentDate = new DateTime(); $year = $currentDate->format("Y"); echo $year; ?>
     </div>
   </div>
 </footer>

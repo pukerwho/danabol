@@ -390,3 +390,4 @@ function time_ago() {
   return sprintf( esc_html__( '%s тому', 'treba-wp' ), human_time_diff(get_comment_time ( 'U' ), current_time( 'timestamp' ) ) );
 }
 add_filter( 'get_comment_date', 'time_ago' );
+
